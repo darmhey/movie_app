@@ -3,17 +3,15 @@ import 'package:movie_app/repository/src/model/model.dart';
 
 class MovieFailure implements Exception {}
 
-enum MovieCategory { nowPlaying, popular, topRated, upcoming }
-
 class MovieRepository {
   final MovieApiClient _movieApiClient;
 
-  MovieRepository(MovieApiClient? movieApiClient)
-      : _movieApiClient = movieApiClient ?? MovieApiClient();
+  MovieRepository(
+    MovieApiClient? movieApiClient,
+  ) : _movieApiClient = movieApiClient ?? MovieApiClient();
 
-  Future<MovieDetails> getMovieDetails() async {
-    final movie =
-        await _movieApiClient.getMovie(MovieCategory.nowPlaying.toUrl);
+  Future<MovieDetails> getMovieDetails(String category) async {
+    final movie = await _movieApiClient.getMovie(category);
     final movieId = movie.result.movieId;
     final similar = await _movieApiClient.getSimilar(movieId);
     final casts = await _movieApiClient.getCasts(movieId);
@@ -25,20 +23,6 @@ class MovieRepository {
   }
 }
 
-extension on MovieCategory {
-  String get toUrl {
-    switch (this) {
-      case MovieCategory.nowPlaying:
-        return 'now_playing';
-      case MovieCategory.popular:
-        return 'popular';
-      case MovieCategory.topRated:
-        return 'top_rated';
-      case MovieCategory.upcoming:
-        return 'upcoming';
-    }
-  }
-}
 
 
 // extension on WeatherState {

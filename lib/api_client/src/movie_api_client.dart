@@ -3,6 +3,23 @@ import 'package:movie_app/api_client/src/models/models.dart';
 
 class APIrequestFailure implements Exception {}
 
+// enum MovieCategory { nowPlaying, popular, topRated, upcoming }
+
+// extension on MovieCategory {
+//   String get toUrl {
+//     switch (this) {
+//       case MovieCategory.nowPlaying:
+//         return 'now_playing';
+//       case MovieCategory.popular:
+//         return 'popular';
+//       case MovieCategory.topRated:
+//         return 'top_rated';
+//       case MovieCategory.upcoming:
+//         return 'upcoming';
+//     }
+//   }
+// }
+
 class MovieApiClient {
   final Dio _dio = Dio();
   static const baseUrl = "https://api.themoviedb.org/3/movie/";
