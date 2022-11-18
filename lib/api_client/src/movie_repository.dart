@@ -20,7 +20,7 @@ class APIrequestFailure implements Exception {}
 //   }
 // }
 
-class MovieApiClient {
+class MovieRepository {
   final Dio _dio = Dio();
   static const baseUrl = "https://api.themoviedb.org/3/movie/";
   final String apiKey = 'ce3da44a232edc8e85c7ad3ff7cc1929';

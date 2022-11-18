@@ -6,7 +6,7 @@ part 'similar_response.g.dart';
 
 @JsonSerializable(explicitToJson: true)
 class SimilarResponse {
-  final Movie result;
+  final List<Movie> result;
 
   SimilarResponse({required this.result});
 

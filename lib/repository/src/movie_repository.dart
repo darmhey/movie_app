@@ -1,27 +1,27 @@
-import 'package:movie_app/api_client/api_client.dart';
-import 'package:movie_app/repository/src/model/model.dart';
+// import 'package:movie_app/api_client/src/movie_api_client.dart';
+// //import 'package:movie_app/repository/movie_repository.dart';
 
-class MovieFailure implements Exception {}
+// class MovieFailure implements Exception {}
 
-class MovieRepository {
-  final MovieApiClient _movieApiClient;
+// class MovieRepository {
+//   //final MovieApiClient _movieApiClient;
 
-  MovieRepository(
-    MovieApiClient? movieApiClient,
-  ) : _movieApiClient = movieApiClient ?? MovieApiClient();
+//   MovieRepository(
+//     MovieApiClient? movieApiClient,
+//   ) : _movieApiClient = movieApiClient ?? MovieApiClient();
 
-  Future<MovieDetails> getMovieDetails(String category) async {
-    final movie = await _movieApiClient.getMovie(category);
-    final movieId = movie.result.movieId;
-    final similar = await _movieApiClient.getSimilar(movieId);
-    final casts = await _movieApiClient.getCasts(movieId);
-    return MovieDetails(
-      similar: similar,
-      casts: casts,
-      movie: movie,
-    );
-  }
-}
+//   // Future<MovieDetails> getMovieDetails(String category) async {
+//   //   final movie = await _movieApiClient.getMovie(category);
+//   //   final movieId = movie.result.movieId;
+//   //   final similar = await _movieApiClient.getSimilar(movieId);
+//   //   final casts = await _movieApiClient.getCasts(movieId);
+//   //   return MovieDetails(
+//   //     similar: similar,
+//   //     casts: casts,
+//   //     movie: movie,
+//   //   );
+//   // }
+// }
 
 
 

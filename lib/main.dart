@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:movie_app/views/home_page.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+
+import 'api_client/api_client.dart';
+import 'homepage.dart';
 
 void main() {
   runApp(const MyApp());
@@ -11,9 +14,11 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
       theme: ThemeData(),
-      home: const HomePage(),
+      home: RepositoryProvider(
+        create: (context) => MovieRepository(),
+        child: const HomePage(),
+      ),
     );
   }
 }

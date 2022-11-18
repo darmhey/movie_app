@@ -32,29 +32,29 @@ class MovieDetails extends Equatable {
     );
   }
 
-  static final empty = MovieDetails(
-    similar: SimilarResponse(
-        result: Movie(
-            title: '',
-            backdrop: '',
-            overview: '',
-            posterPath: '',
-            movieId: 0,
-            genreIds: [0],
-            releaseDate: '')),
-    casts: CastResponse(
-      cast: [Cast(name: '', profilePath: '')],
-    ),
-    movie: MovieResponse(
-        result: Movie(
-            title: '',
-            backdrop: '',
-            overview: '',
-            posterPath: '',
-            movieId: 0,
-            genreIds: [0],
-            releaseDate: '')),
-  );
+  // static final empty = MovieDetails(
+  //   similar: SimilarResponse(
+  //       result: Movie(
+  //           title: '',
+  //           backdrop: '',
+  //           overview: '',
+  //           posterPath: '',
+  //           movieId: 0,
+  //           genreIds: [0],
+  //           releaseDate: '')),
+  //   casts: CastResponse(
+  //     cast: [Cast(name: '', profilePath: '')],
+  //   ),
+  //   movie: MovieResponse(
+  //       result: Movie(
+  //           title: '',
+  //           backdrop: '',
+  //           overview: '',
+  //           posterPath: '',
+  //           movieId: 0,
+  //           genreIds: [0],
+  //           releaseDate: '')),
+  // );
 
   @override
   List<Object?> get props => [movie, similar, casts];

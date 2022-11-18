@@ -4,19 +4,27 @@ enum MovieStatus { initial, loading, success, failure }
 
 class MovieBlocState extends Equatable {
   final MovieStatus status;
-  final MovieDetails movie;
-  MovieBlocState({
+  final List<Movie> movie;
+  final List<Cast> cast;
+  final List<Movie> similar;
+  const MovieBlocState({
     this.status = MovieStatus.initial,
-    MovieDetails? movie,
-  }) : movie = movie ?? MovieDetails.empty;
+    this.cast = const <Cast>[],
+    this.similar = const <Movie>[],
+    this.movie = const <Movie>[],
+  });
 
   MovieBlocState copyWith({
     MovieStatus? status,
-    MovieDetails? details,
+    List<Movie>? movie,
+    List<Movie>? similar,
+    List<Cast>? cast,
   }) {
     return MovieBlocState(
       status: status ?? this.status,
-      movie: movie,
+      cast: cast ?? this.cast,
+      similar: similar ?? this.similar,
+      movie: movie ?? this.movie,
     );
   }
 

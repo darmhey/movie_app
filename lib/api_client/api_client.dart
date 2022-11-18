@@ -1,1 +1,2 @@
-export 'src/movie_api_client.dart';
+export 'src/movie_repository.dart';
+export 'src/models/models.dart';
