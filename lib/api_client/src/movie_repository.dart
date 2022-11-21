@@ -32,6 +32,26 @@ class MovieRepository {
 
   // var getOthers = '$baseUrl/movie';
 
+  initializeInterceptors() {
+    _dio.interceptors.add(InterceptorsWrapper(
+      onRequest: (request, handler) {
+        // ignore: avoid_print
+        print("${request.method} ${request.baseUrl}${request.path}");
+        return handler.next(request);
+      },
+      onResponse: (response, handler) {
+        // ignore: avoid_print
+        print("${response.data}");
+        return handler.next(response);
+      },
+      onError: (error, handler) {
+        // ignore: avoid_print, unnecessary_string_interpolations
+        print("${error.message}");
+        return handler.next(error);
+      },
+    ));
+  }
+
   Future<MovieResponse> getMovie(String categoryUrl) async {
     var params = {"api_key": apiKey, "language": "en-US"};
     try {
@@ -90,8 +110,8 @@ class MovieRepository {
       var response = await _dio.get("$baseUrl + $movieId + /similar",
           queryParameters: params);
       return SimilarResponse.fromJson(response.data);
-    } on DioError {
-      throw APIrequestFailure;
+    } on DioError catch (e) {
+      throw Exception(e.message);
     }
   }
 }
