@@ -12,7 +12,11 @@ class Upcoming extends StatelessWidget {
       create: (context) => MovieBlocBloc(
         movieRepository: RepositoryProvider.of<MovieRepository>(context),
       )..add(const FetchUpcomingEvent()),
-      child: Container(),
+      child: BlocBuilder<MovieBlocBloc, MovieBlocState>(
+        builder: (context, state) {
+          return Container();
+        },
+      ),
     );
   }
 }

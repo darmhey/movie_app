@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:movie_app/view/widgets/now_playing.dart';
-import 'package:movie_app/view/widgets/popular.dart';
-import 'package:movie_app/view/widgets/top_rated.dart';
-import 'package:movie_app/view/widgets/upcoming.dart';
+
+import '../widgets/main_screen_widgets/now_playing.dart';
+import '../widgets/main_screen_widgets/popular.dart';
+import '../widgets/main_screen_widgets/top_rated.dart';
+import '../widgets/main_screen_widgets/upcoming.dart';
 
 class MoviePage extends StatelessWidget {
   const MoviePage({super.key});

@@ -13,7 +13,11 @@ class NowPlaying extends StatelessWidget {
       create: (context) => MovieBlocBloc(
         movieRepository: RepositoryProvider.of<MovieRepository>(context),
       )..add(const FetchNowPlayingEvent()),
-      child: Container(),
+      child: BlocBuilder<MovieBlocBloc, MovieBlocState>(
+        builder: (context, state) {
+          return Container();
+        },
+      ),
     );
   }
 }

@@ -21,9 +21,16 @@ class APIrequestFailure implements Exception {}
 // }
 
 class MovieRepository {
-  final Dio _dio = Dio();
+  late final Dio _dio;
   static const baseUrl = "https://api.themoviedb.org/3/movie/";
   final String apiKey = 'ce3da44a232edc8e85c7ad3ff7cc1929';
+
+  MovieRepository() {
+    _dio = Dio(BaseOptions(
+      baseUrl: baseUrl,
+    ));
+    initializeInterceptors();
+  }
 
   // var nowplayingUrl = '$baseUrl/movie/now_playing';
   // var popularUrl = '$baseUrl/movie/popular';
@@ -56,10 +63,10 @@ class MovieRepository {
     var params = {"api_key": apiKey, "language": "en-US"};
     try {
       var response =
-          await _dio.get('$baseUrl + $categoryUrl', queryParameters: params);
+          await _dio.get('$baseUrl$categoryUrl', queryParameters: params);
       return MovieResponse.fromJson(response.data);
-    } on DioError {
-      throw APIrequestFailure;
+    } on DioError catch (e) {
+      throw Exception(e.message);
     }
   }
 
@@ -96,8 +103,8 @@ class MovieRepository {
   Future<CastResponse> getCasts(int movieId) async {
     var params = {"api_key": apiKey, "language": "en-US"};
     try {
-      var response = await _dio.get("$baseUrl + $movieId + /credits",
-          queryParameters: params);
+      var response =
+          await _dio.get("$baseUrl$movieId/credits", queryParameters: params);
       return CastResponse.fromJson(response.data);
     } on DioError {
       throw APIrequestFailure;
@@ -107,8 +114,8 @@ class MovieRepository {
   Future<SimilarResponse> getSimilar(int movieId) async {
     var params = {"api_key": apiKey, "language": "en-US"};
     try {
-      var response = await _dio.get("$baseUrl + $movieId + /similar",
-          queryParameters: params);
+      var response =
+          await _dio.get("$baseUrl$movieId/similar", queryParameters: params);
       return SimilarResponse.fromJson(response.data);
     } on DioError catch (e) {
       throw Exception(e.message);

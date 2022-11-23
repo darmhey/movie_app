@@ -4,18 +4,18 @@ part 'movie.g.dart';
 
 @JsonSerializable()
 class Movie {
-  final String title;
+  final String? title;
   @JsonKey(name: 'backdrop_path')
-  final String backdrop;
-  final String overview;
+  final String? backdrop;
+  final String? overview;
   @JsonKey(name: 'bposter_path')
-  final String posterPath;
+  final String? posterPath;
   @JsonKey(name: 'id')
-  final int movieId;
+  final int? movieId;
   @JsonKey(name: 'genre_ids')
-  final List<int> genreIds;
+  final List<int>? genreIds;
   @JsonKey(name: 'release_date')
-  final String releaseDate;
+  final String? releaseDate;
 
   Movie(
       {required this.title,
