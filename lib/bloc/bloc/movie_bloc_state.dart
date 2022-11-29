@@ -1,6 +1,6 @@
 part of 'movie_bloc_bloc.dart';
 
-enum MovieStatus { initial, loading, success, failure }
+enum MovieStatus { loading, success, failure }
 
 class MovieBlocState extends Equatable {
   final MovieStatus status;
@@ -8,7 +8,7 @@ class MovieBlocState extends Equatable {
   final List<Cast> cast;
   final List<Movie> similar;
   const MovieBlocState({
-    this.status = MovieStatus.initial,
+    this.status = MovieStatus.loading,
     this.cast = const <Cast>[],
     this.similar = const <Movie>[],
     this.movie = const <Movie>[],

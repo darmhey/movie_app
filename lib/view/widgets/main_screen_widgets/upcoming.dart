@@ -14,7 +14,19 @@ class Upcoming extends StatelessWidget {
       )..add(const FetchUpcomingEvent()),
       child: BlocBuilder<MovieBlocBloc, MovieBlocState>(
         builder: (context, state) {
-          return Container();
+          switch (state.status) {
+            case MovieStatus.loading:
+            //return const CircularProgressIndicator();
+            case MovieStatus.success:
+              // TODO: Handle this case.
+              break;
+            case MovieStatus.failure:
+              return const Center(child: Text('Oops something went wrong!'));
+          }
+          return Container(
+            color: Colors.red,
+            height: 20,
+          );
         },
       ),
     );
