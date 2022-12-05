@@ -10,7 +10,7 @@ Movie _$MovieFromJson(Map<String, dynamic> json) => Movie(
       title: json['title'] as String?,
       backdrop: json['backdrop_path'] as String?,
       overview: json['overview'] as String?,
-      posterPath: json['bposter_path'] as String?,
+      posterPath: json['poster_path'] as String?,
       movieId: json['id'] as int?,
       genreIds:
           (json['genre_ids'] as List<dynamic>?)?.map((e) => e as int).toList(),

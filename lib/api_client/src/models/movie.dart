@@ -8,7 +8,7 @@ class Movie {
   @JsonKey(name: 'backdrop_path')
   final String? backdrop;
   final String? overview;
-  @JsonKey(name: 'bposter_path')
+  @JsonKey(name: 'poster_path')
   final String? posterPath;
   @JsonKey(name: 'id')
   final int? movieId;

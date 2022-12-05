@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-import '../widgets/main_screen_widgets/now_playing.dart';
-import '../widgets/main_screen_widgets/popular.dart';
-import '../widgets/main_screen_widgets/top_rated.dart';
+// import '../widgets/main_screen_widgets/now_playing.dart';
+// import '../widgets/main_screen_widgets/popular.dart';
+// import '../widgets/main_screen_widgets/top_rated.dart';
 import '../widgets/main_screen_widgets/upcoming.dart';
 
 class MoviePage extends StatelessWidget {
@@ -10,15 +10,6 @@ class MoviePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Column(
-        children: const [
-          Upcoming(),
-          NowPlaying(),
-          TopRated(),
-          Popular(),
-        ],
-      ),
-    );
+    return (const Upcoming());
   }
 }

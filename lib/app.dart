@@ -10,10 +10,10 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: ThemeData(),
+      debugShowCheckedModeBanner: false,
       home: RepositoryProvider(
         create: (context) => MovieRepository(),
-        child: const MoviePage(),
+        child: const Scaffold(body: MoviePage()),
       ),
     );
   }
