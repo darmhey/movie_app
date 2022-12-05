@@ -21,7 +21,7 @@ Map<String, dynamic> _$MovieToJson(Movie instance) => <String, dynamic>{
       'title': instance.title,
       'backdrop_path': instance.backdrop,
       'overview': instance.overview,
-      'bposter_path': instance.posterPath,
+      'poster_path': instance.posterPath,
       'id': instance.movieId,
       'genre_ids': instance.genreIds,
       'release_date': instance.releaseDate,

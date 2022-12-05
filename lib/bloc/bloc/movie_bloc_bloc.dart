@@ -8,7 +8,7 @@ part 'movie_bloc_state.dart';
 class MovieBlocBloc extends Bloc<MovieBlocEvent, MovieBlocState> {
   final MovieRepository movieRepository;
   MovieBlocBloc({required this.movieRepository})
-      : super(const MovieBlocState()) {
+      : super(const MovieBlocState(0)) {
     on<FetchPopularEvent>((event, emit) async {
       emit(state.copyWith(status: MovieStatus.loading));
       try {
@@ -44,14 +44,15 @@ class MovieBlocBloc extends Bloc<MovieBlocEvent, MovieBlocState> {
       }
     });
     on<FetchUpcomingEvent>((event, emit) async {
+      emit(state.copyWith(status: MovieStatus.loading));
       try {
         final movie = await movieRepository.getMovie('upcoming');
         emit(state.copyWith(
           status: MovieStatus.success,
           movie: movie.result,
         ));
-      } on Exception catch (e) {
-        throw Exception(e);
+      } on Exception {
+        emit(state.copyWith(status: MovieStatus.failure));
       }
     });
   }

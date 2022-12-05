@@ -20,7 +20,20 @@ class Upcoming extends StatelessWidget {
               return const LoadingWidget();
             case MovieStatus.success:
               return state.movie.isEmpty
-                  ? const Center(child: Text('Empty List'))
+                  ? Center(
+                      child: Padding(
+                        padding: const EdgeInsets.all(68.0),
+                        child: SizedBox(
+                          width: 80,
+                          child: Column(
+                            children: [
+                              Text('Page no: ${state.page}'),
+                              const Center(child: Text('Empty List')),
+                            ],
+                          ),
+                        ),
+                      ),
+                    )
                   : Center(child: Text(state.movie[1].overview!));
 
             // return SizedBox(
