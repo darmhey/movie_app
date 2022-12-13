@@ -9,7 +9,7 @@ part of 'movie_response.dart';
 MovieResponse _$MovieResponseFromJson(Map<String, dynamic> json) =>
     MovieResponse(
       page: json['page'] as int,
-      result: (json['result'] as List<dynamic>?)
+      results: (json['results'] as List<dynamic>?)
           ?.map((e) => Movie.fromJson(e as Map<String, dynamic>))
           .toList(),
     );
@@ -17,5 +17,5 @@ MovieResponse _$MovieResponseFromJson(Map<String, dynamic> json) =>
 Map<String, dynamic> _$MovieResponseToJson(MovieResponse instance) =>
     <String, dynamic>{
       'page': instance.page,
-      'result': instance.result?.map((e) => e.toJson()).toList(),
+      'results': instance.results?.map((e) => e.toJson()).toList(),
     };

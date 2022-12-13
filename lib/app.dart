@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:movie_app/mainscreen.dart';
 
 import 'api_client/api_client.dart';
-import 'view/screens/movie_page.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
@@ -13,7 +13,10 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       home: RepositoryProvider(
         create: (context) => MovieRepository(),
-        child: const Scaffold(body: MoviePage()),
+        child: const Scaffold(
+          backgroundColor: Colors.black,
+          body: MainScreen(),
+        ),
       ),
     );
   }
