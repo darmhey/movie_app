@@ -17,16 +17,13 @@ class MoviesListWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      child: GestureDetector(
-        onTap: () {},
-        child: AspectRatio(
-          aspectRatio: 2 / 3,
-          child: ClipRRect(
-            borderRadius: BorderRadius.circular(5.0),
-            child: Image.network(
-              imageBaseUrl + imageUrl,
-              fit: BoxFit.fill,
-            ),
+      child: AspectRatio(
+        aspectRatio: 2 / 3,
+        child: ClipRRect(
+          borderRadius: BorderRadius.circular(5.0),
+          child: Image.network(
+            imageBaseUrl + imageUrl,
+            fit: BoxFit.fill,
           ),
         ),
       ),

@@ -34,3 +34,17 @@ class FetchUpcomingEvent extends MovieBlocEvent {
   @override
   List<Object> get props => [];
 }
+
+class FetchCastsEvent extends MovieBlocEvent {
+  const FetchCastsEvent();
+
+  @override
+  List<Object> get props => [];
+}
+
+class FetchSimilarsEvent extends MovieBlocEvent {
+  const FetchSimilarsEvent();
+
+  @override
+  List<Object> get props => [];
+}
