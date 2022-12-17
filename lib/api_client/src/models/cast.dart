@@ -4,9 +4,9 @@ part 'cast.g.dart';
 
 @JsonSerializable()
 class Cast {
-  final String name;
+  final String? name;
   @JsonKey(name: 'profile_path')
-  final String profilePath;
+  final String? profilePath;
 
   Cast({required this.name, required this.profilePath});
 

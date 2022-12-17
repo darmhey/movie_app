@@ -3,13 +3,11 @@ part of 'movie_bloc_bloc.dart';
 enum MovieStatus { loading, success, failure }
 
 class MovieBlocState extends Equatable {
-  final int page;
   final MovieStatus status;
   final List<Movie> movie;
   final List<Cast> cast;
   final List<Movie> similar;
-  const MovieBlocState(
-    this.page, {
+  const MovieBlocState({
     this.status = MovieStatus.loading,
     this.cast = const <Cast>[],
     this.similar = const <Movie>[],
@@ -23,11 +21,11 @@ class MovieBlocState extends Equatable {
     List<Cast>? cast,
   }) {
     return MovieBlocState(
-        status: status ?? this.status,
-        cast: cast ?? this.cast,
-        similar: similar ?? this.similar,
-        movie: movie ?? this.movie,
-        page);
+      status: status ?? this.status,
+      cast: cast ?? this.cast,
+      similar: similar ?? this.similar,
+      movie: movie ?? this.movie,
+    );
   }
 
   @override

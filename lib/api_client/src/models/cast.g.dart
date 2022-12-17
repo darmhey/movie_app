@@ -7,8 +7,8 @@ part of 'cast.dart';
 // **************************************************************************
 
 Cast _$CastFromJson(Map<String, dynamic> json) => Cast(
-      name: json['name'] as String,
-      profilePath: json['profile_path'] as String,
+      name: json['name'] as String?,
+      profilePath: json['profile_path'] as String?,
     );
 
 Map<String, dynamic> _$CastToJson(Cast instance) => <String, dynamic>{

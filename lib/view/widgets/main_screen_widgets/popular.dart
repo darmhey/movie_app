@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movie_app/api_client/src/movie_repository.dart';
 import 'package:movie_app/bloc/bloc/movie_bloc_bloc.dart';
-import 'package:movie_app/view/screens/movie_details_screen.dart';
+import 'package:movie_app/view/widgets/detail_screen_widgets/movie_details_screen.dart';
 
 import '../loading_widget.dart';
 import '../movies_list_widget.dart';
@@ -13,13 +13,14 @@ class Popular extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final bloc = BlocProvider.of<MovieBlocBloc>(context);
     return BlocProvider(
       create: (context) => MovieBlocBloc(
         movieRepository: RepositoryProvider.of<MovieRepository>(context),
       )..add(const FetchPopularEvent()),
       child: BlocBuilder<MovieBlocBloc, MovieBlocState>(
         builder: (context, state) {
+          final bloc = BlocProvider.of<MovieBlocBloc>(context);
+
           switch (state.status) {
             case MovieStatus.loading:
               return const LoadingWidget();

@@ -5,7 +5,7 @@ part 'cast_response.g.dart';
 
 @JsonSerializable(explicitToJson: true)
 class CastResponse {
-  final List<Cast> cast;
+  final List<Cast>? cast;
 
   CastResponse({required this.cast});
 

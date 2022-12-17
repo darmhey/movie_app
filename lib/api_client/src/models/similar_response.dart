@@ -6,9 +6,9 @@ part 'similar_response.g.dart';
 
 @JsonSerializable(explicitToJson: true)
 class SimilarResponse {
-  final List<Movie> result;
+  final List<Movie>? results;
 
-  SimilarResponse({required this.result});
+  SimilarResponse({required this.results});
 
   factory SimilarResponse.fromJson(Map<String, dynamic> json) =>
       _$SimilarResponseFromJson(json);

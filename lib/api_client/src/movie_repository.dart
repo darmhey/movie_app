@@ -3,23 +3,6 @@ import 'package:movie_app/api_client/src/models/models.dart';
 
 class APIrequestFailure implements Exception {}
 
-// enum MovieCategory { nowPlaying, popular, topRated, upcoming }
-
-// extension on MovieCategory {
-//   String get toUrl {
-//     switch (this) {
-//       case MovieCategory.nowPlaying:
-//         return 'now_playing';
-//       case MovieCategory.popular:
-//         return 'popular';
-//       case MovieCategory.topRated:
-//         return 'top_rated';
-//       case MovieCategory.upcoming:
-//         return 'upcoming';
-//     }
-//   }
-// }
-
 class MovieRepository {
   late final Dio _dio;
   static const baseUrl = "https://api.themoviedb.org/3/movie/";
@@ -31,13 +14,6 @@ class MovieRepository {
     ));
     initializeInterceptors();
   }
-
-  // var nowplayingUrl = '$baseUrl/movie/now_playing';
-  // var popularUrl = '$baseUrl/movie/popular';
-  // var topratedUrl = '$baseUrl/movie/top_rated';
-  // var upcomingUrl = '$baseUrl/movie/upcoming';
-
-  // var getOthers = '$baseUrl/movie';
 
   initializeInterceptors() {
     _dio.interceptors.add(InterceptorsWrapper(
@@ -70,36 +46,6 @@ class MovieRepository {
     }
   }
 
-  // Future<MovieResponse> getPopular() async {
-  //   var params = {"api_key": apiKey, "language": "en-US"};
-  //   try {
-  //     var response = await _dio.get(popularUrl, queryParameters: params);
-  //     return MovieResponse.fromJson(response.data);
-  //   } on DioError {
-  //     throw APIrequestFailure;
-  //   }
-  // }
-
-  // Future<MovieResponse> getTopRated() async {
-  //   var params = {"api_key": apiKey, "language": "en-US"};
-  //   try {
-  //     var response = await _dio.get(topratedUrl, queryParameters: params);
-  //     return MovieResponse.fromJson(response.data);
-  //   } on DioError {
-  //     throw APIrequestFailure;
-  //   }
-  // }
-
-  // Future<MovieResponse> getUpcoming() async {
-  //   var params = {"api_key": apiKey, "language": "en-US"};
-  //   try {
-  //     var response = await _dio.get(upcomingUrl, queryParameters: params);
-  //     return MovieResponse.fromJson(response.data);
-  //   } on DioError {
-  //     throw APIrequestFailure;
-  //   }
-  // }
-
   Future<CastResponse> getCasts(int movieId) async {
     var params = {"api_key": apiKey, "language": "en-US"};
     try {
@@ -122,20 +68,3 @@ class MovieRepository {
     }
   }
 }
-
-// enum MovieCategory { nowPlaying, popular, topRated, upcoming }
-
-// extension on MovieCategory {
-//   Future<MovieResponse> get onCategory {
-//     switch (this) {
-//       case MovieCategory.nowPlaying:
-//         return getMovie('now_playing');
-//       case MovieCategory.popular:
-//         return getMovie('popular');
-//       case MovieCategory.topRated:
-//         return getMovie('top_rated');
-//       case MovieCategory.upcoming:
-//         return getMovie('upcoming');
-//     }
-//   }
-// }

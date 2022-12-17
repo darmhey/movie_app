@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movie_app/api_client/src/movie_repository.dart';
 import 'package:movie_app/bloc/bloc/movie_bloc_bloc.dart';
-import 'package:movie_app/view/screens/movie_details_screen.dart';
+import 'package:movie_app/view/widgets/detail_screen_widgets/movie_details_screen.dart';
 import 'package:movie_app/view/widgets/loading_widget.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 
@@ -145,3 +145,21 @@ class Upcoming extends StatelessWidget {
     );
   }
 }
+
+
+// BlocProvider(
+//                                           create: (context) => MovieBlocBloc(
+//                                             movieRepository: RepositoryProvider
+//                                                 .of<MovieRepository>(context),
+//                                           )..add(const FetchCastsEvent(
+//                                               movieId: 724495)),
+//                                           child: MovieDetailsScreen(
+//                                             releaseDate: movie.releaseDate!,
+//                                             backdrop: movie.backdrop!,
+//                                             movieId: movie.movieId!,
+//                                             genres: movie.genreIds!,
+//                                             overview: movie.overview!,
+//                                             title: movie.title!,
+//                                           ),
+//                                         );
+

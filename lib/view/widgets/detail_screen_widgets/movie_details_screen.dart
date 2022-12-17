@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movie_app/bloc/bloc/movie_bloc_bloc.dart';
+import 'package:movie_app/view/widgets/detail_screen_widgets/movie_casts.dart';
 
 class MovieDetailsScreen extends StatelessWidget {
   final String overview;
@@ -122,7 +123,8 @@ class MovieDetailsScreen extends StatelessWidget {
                       ),
                     ],
                   ),
-                )
+                ),
+                const MovieCasts()
               ],
             ),
           );
